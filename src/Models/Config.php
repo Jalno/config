@@ -48,6 +48,6 @@ class Config extends Model
 		return (
 			(preg_match("/^\{/", $value) and preg_match("/\}$/", $value)) or
 			(preg_match("/^\[/", $value) and preg_match("/\]$/", $value))
-		) ? json_decode($value) : $value;
+		) ? json_decode($value, true) : $value;
 	}
 }
