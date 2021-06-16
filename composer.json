@@ -1,12 +1,17 @@
 {
-	"name": "jalno/config",
-	"version": "0.0.1",
-	"autoload": {
-		"psr-4": {
-			"Jalno\\Config\\": "src"
-		}
-	},
-	"require": {
-		"jalno/lumen": "^0.0.1"
-	}
+    "name": "jalno/config",
+    "version": "0.0.1",
+    "autoload": {
+        "psr-4": {
+            "Jalno\\Config\\": "src"
+        }
+    },
+    "require": {
+        "jalno/lumen": "^0.0.1"
+    },
+    "extra": {
+        "jalno": {
+            "package": "Jalno\\Config\\Package"
+        }
+    }
 }
