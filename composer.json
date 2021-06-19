@@ -4,6 +4,7 @@
     "description": "Jalno Config",
     "autoload": {
         "psr-4": {
+            "Jalno\\Lumen\\": "vendor/jalno/lumen/src",
             "Jalno\\Config\\": "src"
         }
     },
