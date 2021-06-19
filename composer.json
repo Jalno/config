@@ -1,6 +1,7 @@
 {
     "name": "jalno/config",
     "version": "0.0.1",
+    "description": "Jalno Config",
     "autoload": {
         "psr-4": {
             "Jalno\\Config\\": "src"
