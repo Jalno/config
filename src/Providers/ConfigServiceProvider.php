@@ -34,7 +34,7 @@ class ConfigServiceProvider extends ServiceProvider
 		}
 	}
 
-	public function registerMigrations()
+	public function registerMigrations(): void
 	{
 		$this->loadMigrationsFrom(package()->getMigrationPath());
 	}
