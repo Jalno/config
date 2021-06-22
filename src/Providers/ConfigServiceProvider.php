@@ -1,23 +1,11 @@
 <?php
 namespace Jalno\Config\Providers;
 
-
 use Illuminate\Support\ServiceProvider;
 use Jalno\Config\Models\Config as Model;
 
 class ConfigServiceProvider extends ServiceProvider
 {
-	/**
-	 * Register any application services.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
-		if ($this->app->runningInConsole()) {
-			$this->registerMigrations();
-		}
-	}
 
 	/**
 	 * Boot the authentication services for the application.
@@ -26,15 +14,19 @@ class ConfigServiceProvider extends ServiceProvider
 	 */
 	public function boot()
 	{
-		foreach (Model::get() as $config) {
-			if (app('config')->has($config->name)) {
-				continue;
+		$config = app("config");
+		if ($config->get("app.env") != "testing") {
+			$this->registerMigrations();
+			foreach (Model::get() as $row) {
+				if ($config->has($row->name)) {
+					continue;
+				}
+				$config->set($row->name, $row->value);
 			}
-			app('config')->set($config->name, $config->value);
 		}
 	}
 
-	public function registerMigrations()
+	public function registerMigrations(): void
 	{
 		$this->loadMigrationsFrom(package()->getMigrationPath());
 	}

@@ -4,6 +4,10 @@ namespace Jalno\Config\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property string $name
+ * @property mixed $value
+ */
 class Config extends Model
 {
 	/**
@@ -16,7 +20,7 @@ class Config extends Model
 	/**
 	 * The attributes that are mass assignable.
 	 *
-	 * @var array
+	 * @var string[]
 	 */
 	protected $fillable = [
 		'name',
@@ -26,14 +30,14 @@ class Config extends Model
 	/**
 	 * The model's default values for attributes.
 	 *
-	 * @var array
+	 * @var array<string, mixed>
 	 */
 	protected $attributes = [];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
-	 * @var array
+	 * @var string[]
 	 */
 	protected $hidden = [];
 
@@ -41,7 +45,7 @@ class Config extends Model
 	 * Get the config's value.
 	 *
 	 * @param  string  $value
-	 * @return string|int|array
+	 * @return string|int|array<string,mixed>|array<mixed>
 	 */
 	public function getValueAttribute(string $value)
 	{
