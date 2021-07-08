@@ -4,10 +4,6 @@ namespace Jalno\Config\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * @property string $name
- * @property mixed $value
- */
 class Config extends Model
 {
 	/**

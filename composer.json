@@ -6,22 +6,34 @@
             "Jalno\\Config\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Jalno\\Config\\Tests\\": "tests/"
+        }
+    },
     "require": {
-        "jalno/lumen": "^1.0.1"
+        "illuminate/database": "^8.0",
+        "illuminate/support": "^8.0",
+        "illuminate/config": "^8.0"
     },
     "require-dev": {
         "nunomaduro/larastan": "^0.7.6",
-        "orchestra/testbench": "^6.18.0"
+        "orchestra/testbench": "^6.18.0",
+        "jalno/lumen": "^1.0.1"
     },
     "scripts": {
-        "test:types": "./vendor/phpstan/phpstan/phpstan analyse",
+        "test:types": "./vendor/bin/phpstan analyse",
+        "test:unit": "./vendor/bin/phpunit",
         "test": [
-            "@test:types"
+            "@test:types",
+            "@test:unit"
         ]
     },
     "extra": {
-        "jalno": {
-            "package": "Jalno\\Config\\Package"
+        "laravel": {
+            "providers": [
+                "Jalno\\Config\\ConfigServiceProvider"
+            ]
         }
     }
 }
